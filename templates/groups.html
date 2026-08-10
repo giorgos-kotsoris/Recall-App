@@ -1,0 +1,43 @@
+{% extends 'base.html' %}{% block content %}
+<div class="heading">
+    <div><h1>Ομάδες</h1>
+        <p>Δημιουργήστε τις ομάδες στις οποίες ανήκουν τα μέλη.</p>
+    </div>
+</div>
+<section class="card form-card">
+    <h2>Νέα ομάδα</h2>
+        <form method="post">
+            <label>Όνομα ομάδας<input name="name" required></label>
+            <label>Περιγραφή<input name="description"></label>
+            <button class="primary">Προσθήκη</button>
+        </form>
+</section>
+<section class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>Ομάδα</th>
+                <th>Περιγραφή</th>
+                <th>Μέλη</th>
+                <th></th>
+            </tr>
+        </thead>
+            <tbody>{% for group in groups %}
+                <tr>
+                    <td>{{ group.name }}</td>
+                    <td>{{ group.description or '—' }}</td>
+                    <td>{{ group.members|length }}</td>
+                    <td>
+                        <form method="post" action="{{ url_for('groups.delete', group_id=group.id) }}">
+                        <button class="danger" onclick="return confirm('Να διαγραφεί η ομάδα;')">Διαγραφή
+                        </button>
+                        </form>
+                    </td>
+                </tr>{% else %}
+                <tr>
+                    <td colspan="4">Δεν υπάρχουν ομάδες.
+                    </td>
+                </tr>{% endfor %}
+            </tbody>
+    </table>
+</section>{% endblock %}

@@ -1,0 +1,30 @@
+{%extends 'base.html'%}{%block content%}
+
+<div class="heading">
+    <h1>{{ 'Επεξεργασία Μέλους' if member else 'Νέο Μέλος' }}</h1>
+    <a href="{{ url_for('members.index') }}">Πίσω στη λίστα μελών</a>
+</div>
+<section class="card form-card">
+    <form method="post">
+         <label>Βαθμός
+            <input name="rank" value="{{ member.rank if member else '' }}" required></label>
+        <label>Όνομα
+            <input name="first_name" value="{{ member.first_name if member else '' }}" required></label>
+        <label>Επώνυμο
+            <input name="last_name" value="{{ member.last_name if member else '' }}" required></label>
+        <label>Διεύθυνση
+            <input name="address" value="{{ member.address if member else '' }}" required></label>
+        <label>Καθήκον
+            <input name="organization_duty" value="{{ member.organization_duty if member else '' }}" required></label>
+        <label>Τηλέφωνο επικοινωνίας
+            <input name="phone_number" value="{{ member.phone_number if member else '' }}" required></label>
+        <label>Ομάδα
+            <select name="group_id" required>
+            {% for group in groups %}
+                <option value="{{ group.id }}" {% if member and member.group_id == group.id %}selected{% endif %}>{{ group.name }}</option>{% endfor %}
+            </select>
+        </label>
+        <button class="primary">Αποθήκευση</button>
+    </form>
+</section>
+{% endblock %}
