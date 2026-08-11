@@ -1,0 +1,35 @@
+{%- extends 'base.html' -%}{%- block content -%}
+<div class="heading">
+    <div>
+        <h1>Χρήστες</h1>
+        <p>Δημιουργία νέου χρήστη και διαχείριση ρόλων</p>
+    </div>
+    <a class = "button primary" href="{{ url_for('users.create') }}">Νέος χρήστης</a>
+</div>
+<div class="card">
+    <table>
+        <thread>
+            <tr>
+                <th>Όνομα χρήστη</th>
+                <th>Ρόλος</th>
+                <th></th>
+            </tr>
+        </thread>
+        tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.username }}{% if user.id == current_user.id %}
+                <small>(εσείς)</small>
+                {% endif %}</td>
+                <td>{{ 'Διαχειριστής' if user.role == 'admin' else 'Προβολή μόνο' }}</td>
+                <td>{% if user.id != current_user.id %}
+                    <a href="{{ url_for('users.edit_role', user_id=user.id) }}">Αλλαγή ρόλου</a>
+                    <form class="inline" method="post" action="{{ url_for('users.delete', user_id=user.id) }}">
+                        <button class="danger" onclick="return confirm('Να διαγραφεί ο χρήστης;')">Διαγραφή</button>
+                    </form>{% else %}Τα στοιχεία σας αλλάζουν από «Ο λογαριασμός μου».{% endif %}
+                </td>
+            </tr>{% endfor %}
+            </table>
+    </table>
+</div>
+{% endblock %}

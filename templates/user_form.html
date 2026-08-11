@@ -1,0 +1,28 @@
+{%- extends 'base.html' -%}{%- block content -%}
+<div class="heading">
+    <h1>{{ 'Επεξεργασία Χρήστη' if role else 'Νέος Χρήστης' }}</h1>
+    <a href="{{ url_for('roles.index') }}">Πίσω</a>
+</div>
+<section class="card form-card">
+    <form method="post">
+        <label>Username
+    <input name="username" value="{{ user.username if user else '' }}" minlength="3" required>
+  </label>
+  <label>Ρόλος
+    <select name="role">
+      <option value="viewer" {% if user and user.role == 'viewer' %}selected{% endif %}>Προβολή μόνο
+      </option>
+      <option value="admin" {% if user and user.role == 'admin' %}selected{% endif %}>Διαχειριστής
+      </option>
+    </select>
+  </label>
+  <label>{{ 'Νέος κωδικός (προαιρετικά)' if user else 'Κωδικός' }}
+    <input type="password" name="password" minlength="8" {% if not user %}required{% endif %}>
+  </label>
+  <label>Επιβεβαίωση κωδικού
+    <input type="password" name="password_confirmation" minlength="8" {% if not user %}required{% endif %}>
+  </label>
+        <button class="primary">Αποθήκευση</button>
+    </form>
+</section>
+{% endblock %}
