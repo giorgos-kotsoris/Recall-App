@@ -1,12 +1,13 @@
-{%extends 'base.html'%}{%block content%}
-
+{% extends 'base.html' %}
+{% block content %}
 <div class="heading">
-    <h1>{{ 'Επεξεργασία Μέλους' if member else 'Νέο Μέλος' }}</h1>
-    <a href="{{ url_for('members.index') }}">Πίσω στη λίστα μελών</a>
+    <h1>{{ 'Επεξεργασία μέλους' if member else 'Νέο μέλος' }}</h1>
+    <a href="{{ url_for('members.index') }}">← Πίσω
+    </a>
 </div>
 <section class="card form-card">
     <form method="post">
-         <label>Βαθμός
+        <label>Βαθμός
             <input name="rank" value="{{ member.rank if member else '' }}" required></label>
         <label>Όνομα
             <input name="first_name" value="{{ member.first_name if member else '' }}" required></label>

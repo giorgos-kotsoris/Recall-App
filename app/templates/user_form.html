@@ -1,11 +1,12 @@
-{%- extends 'base.html' -%}{%- block content -%}
+{% extends 'base.html' %}
+{% block content %}
 <div class="heading">
-    <h1>{{ 'Επεξεργασία Χρήστη' if role else 'Νέος Χρήστης' }}</h1>
-    <a href="{{ url_for('roles.index') }}">Πίσω</a>
+  <h1>{{ 'Επεξεργασία χρήστη' if user else 'Νέος χρήστης' }}</h1>
+  <a href="{{ url_for('users.index') }}">← Πίσω</a>
 </div>
 <section class="card form-card">
-    <form method="post">
-        <label>Username
+  <form method="post">
+  <label>Username
     <input name="username" value="{{ user.username if user else '' }}" minlength="3" required>
   </label>
   <label>Ρόλος
@@ -22,7 +23,7 @@
   <label>Επιβεβαίωση κωδικού
     <input type="password" name="password_confirmation" minlength="8" {% if not user %}required{% endif %}>
   </label>
-        <button class="primary">Αποθήκευση</button>
-    </form>
+  <button class="primary">Αποθήκευση</button>
+  </form>
 </section>
 {% endblock %}

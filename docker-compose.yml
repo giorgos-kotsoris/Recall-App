@@ -1,0 +1,15 @@
+services:
+  organization-app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      # Αλλάξτε την τιμή πριν από δημοσίευση της εφαρμογής.
+      SECRET_KEY: ${SECRET_KEY:-development-secret-change-me}
+    volumes:
+      # Η βάση SQLite παραμένει διαθέσιμη ακόμη και μετά το restart του container.
+      - organization_data:/app/instance
+    restart: unless-stopped
+
+volumes:
+  organization_data:

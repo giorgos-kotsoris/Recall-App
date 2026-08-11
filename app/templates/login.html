@@ -1,12 +1,12 @@
-{% extends 'base.html' %} {block content %}
-<section class = "card login">
+{% extends 'base.html' %}{% block content %}
+<section class="card login">
     <h1>Οργάνωση Μελών</h1>
-    <p>Συνδεθείτε για πρόσβαση στο μητρώο.</p>
+        <p>Συνδεθείτε για πρόσβαση στο μητρώο.</p>
         <form method="post">
             <label>Όνομα χρήστη<input name="username" required autofocus></label>
             <label>Κωδικός<input type="password" name="password" required></label>
             <button class="primary">Σύνδεση</button>
         </form>
     <small>Αρχικός λογαριασμός: Ύπαρχος / Admin123!</small>
-</section>{% endblock %}
 </section>
+{% endblock %}

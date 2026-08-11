@@ -1,23 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="heading">
-  <div><h1>Μέλη</h1><p>Μητρώο μελών ανά ομάδα.</p></div>
-  {% if current_user.role == 'admin' %}<a class="button primary" href="{{ url_for('members.create') }}">+ Νέο μέλος</a>{% endif %}
+  <div><h1>Μέλη</h1><p>Μητρώο μελών ανά ομάδα.</p>
+  </div>
+  {% if current_user.role == 'admin' %}
+  <a class="button primary" href="{{ url_for('members.create') }}">+ Νέο μέλος</a>{% endif %}
 </div>
 <form class="filters" method="get">
-  <select name="group"><option value="">Όλες οι ομάδες</option>
-    {% for group in groups %}<option value="{{ group.id }}" {% if selected_group == group.id %}selected{% endif %}>{{ group.name }}</option>
-    {% endfor %}</select>
-    <button>Φίλτρο</button></form>
+  <select name="group">
+    <option value="">Όλες οι ομάδες</option>
+    {% for group in groups %}
+    <option value="{{ group.id }}" {% if selected_group == group.id %}selected{% endif %}>{{ group.name }}</option>
+    {% endfor %}
+  </select>
+  <button>Φίλτρο</button>
+</form>
 <div class="card">
-  <table><thead><tr>
-    <th>Ονοματεπώνυμο</th>
-    <th>Ομάδα</th><th>Καθήκον</th>
-    <th>Βαθμός</th>
-    <th>Τηλέφωνο επικοινωνίας</th>
-    <th>Διεύθυνση</th>{% if current_user.role == 'admin' %}
-    <th></th>{% endif %}</tr>
-  </thead>
+  <table>
+    <thead>
+      <tr>
+        <th>Ονοματεπώνυμο</th>
+          <th>Ομάδα</th>
+          <th>Καθήκον</th>
+          <th>Βαθμός</th>
+          <th>Τηλέφωνο επικοινωνίας</th>
+          <th>Διεύθυνση</th>{% if current_user.role == 'admin' %}
+          <th></th>{% endif %}</tr>
+    </thead>
     <tbody>
       {% for member in members %}
       <tr>
@@ -26,7 +35,8 @@
         <td>{{ member.organization_duty }}</td>
         <td>{{ member.rank }}</td>
         <td>{{ member.phone_number }}</td>
-        <td>{{ member.address }}</td>{% if current_user.role == 'admin' %}
+        <td>{{ member.address }}</td>
+        {% if current_user.role == 'admin' %}
         <td>
           <a href="{{ url_for('members.edit', member_id=member.id) }}">Επεξεργασία</a>
           <form class="inline" method="post" action="{{ url_for('members.delete', member_id=member.id) }}">
@@ -40,4 +50,5 @@
       </tr>{% endfor %}
     </tbody>
   </table>
-</div>{% endblock %}
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% block content %}
+<div class="heading">
+    <h1>Ρόλος χρήστη</h1>
+    <a href="{{ url_for('users.index') }}">← Πίσω</a>
+</div>
+<section class="card form-card">
+    <form method="post">
+        <p>Χρήστης: <strong>{{ user.username }}</strong></p>
+        <label>Ρόλος
+            <select name="role">
+            <option value="viewer" {% if user.role == 'viewer' %}selected{% endif %}>Προβολή μόνο</option>
+            <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Διαχειριστής</option>
+            </select>
+        </label>
+        <button class="primary">Αποθήκευση ρόλου</button>
+    </form>
+</section>
+{% endblock %}

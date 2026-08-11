@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Οργάνωση Μελών</title>
-        <link rel="stylesheet" href="{{ url_for('style', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>{% if current_user.is_authenticated %}
         <nav>
             <div class="ship-identity">
-                <img class="nav-logo" src="{{ url_for('style', filename='ship-crest.png') }}" alt="Θυρεός πλοίου">
+                <img class="nav-logo" src="{{ url_for('static', filename='ship-crest.png') }}" alt="Θυρεός πλοίου">
                 <span>ΤΠΚ ΣΙΜΙΤΖΟΠΟΥΛΟΣ
                 </span>
             </div>
@@ -29,7 +29,10 @@
         <main>{% with messages = get_flashed_messages(with_categories=true) %}{% for category, message in messages %}
             <div class="flash {{ category }}">{{ message }}
             </div>
-            {% endfor %}{% endwith %}{% block content %}{% endblock %}
+            {% endfor %}
+            {% endwith %}
+            {% block content %}
+            {% endblock %}
         </main>
     </body>
 </html>

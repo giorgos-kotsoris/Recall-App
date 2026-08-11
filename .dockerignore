@@ -1,0 +1,8 @@
+.git
+.venv
+__pycache__
+*.py[cod]
+instance
+*.db
+.env
+README.md
