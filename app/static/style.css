@@ -52,10 +52,10 @@ main
     padding:0 24px}
 
 .card
-    {background:#346bb8;
+    {background:#fff;
     border-radius:12px;
     padding:24px;
-    box-shadow:0 2px 12px #031e5d;
+    box-shadow:0 2px 12px #fff;
     margin:20px 0}
 
 .heading
@@ -70,7 +70,7 @@ h1
 
 h2
     {margin-top:0}
-    p{color:#346bb8}
+    p{color:#fff}
     form{display:grid;gap:16px}
 
 label
@@ -88,7 +88,7 @@ input,select,button,.button
 button,.button
     {cursor:pointer;
     text-decoration:none;
-    color:#031e5d;
+    color:#fff;
     width:max-content}
 
 .primary
