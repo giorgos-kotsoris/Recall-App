@@ -70,7 +70,7 @@ h1
 
 h2
     {margin-top:0}
-    p{color:#fff}
+    p{color:#0000ff}
     form{display:grid;gap:16px}
 
 label
@@ -90,6 +90,9 @@ button,.button
     text-decoration:none;
     color:#fff;
     width:max-content}
+
+main button:not(.primary):not(.danger),main .button:not(.primary):not(.danger)
+    {color:#0000ff}
 
 .primary
     {background:#0000ff;
@@ -121,7 +124,7 @@ th,td
     vertical-align:top}
 
 th
-    {color:#64748b;
+    {color:#0000ff;
     font-size:.85rem}
 
 .inline
@@ -150,7 +153,7 @@ th
     margin:10vh auto}
 
 .login small
-    {color:#64748b}
+    {color:#0000ff}
     
 @media(max-width:700px)
 
