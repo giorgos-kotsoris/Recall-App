@@ -21,7 +21,8 @@ def create():
     service = OrganizationService()
     if request.method == "POST":
         try:
-            service.create_member(data_from_form()); flash("Το μέλος προστέθηκε.", "success")
+            service.create_member(data_from_form());
+            flash("Το μέλος προστέθηκε.", "success")
             return redirect(url_for("members.index"))
         except (ValueError, TypeError) as error: flash(str(error), "error")
     return render_template("member_form.html", groups=service.list_groups(), member=None)
@@ -33,9 +34,11 @@ def edit(member_id):
     if not member: abort(404)
     if request.method == "POST":
         try:
-            service.update_member(member_id, data_from_form()); flash("Τα στοιχεία ενημερώθηκαν.", "success")
+            service.update_member(member_id, data_from_form());
+            flash("Τα στοιχεία ενημερώθηκαν.", "success")
             return redirect(url_for("members.index"))
-        except (ValueError, TypeError) as error: flash(str(error), "error")
+        except (ValueError, TypeError) as error:
+            flash(str(error), "error")
     return render_template("member_form.html", groups=service.list_groups(), member=member)
 
 @members_bp.post("/members/<int:member_id>/delete")

@@ -14,6 +14,7 @@ def index():
         return redirect(url_for("groups.index"))
     return render_template("groups.html", groups=service.list_groups())
 
+
 @groups_bp.post("/<int:group_id>/delete")
 @roles_required("admin")
 def delete(group_id):

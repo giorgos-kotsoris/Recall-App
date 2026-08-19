@@ -1,6 +1,5 @@
 # πρόσβαση των services στα δεδομένα.
 
-
 from app.infrastructure.database import db
 from app.infrastructure.models import GroupModel, MemberModel, UserModel
 
@@ -24,7 +23,6 @@ class GroupRepository:
         db.session.delete(group)
         db.session.commit()
 
-
 class MemberRepository:
     def all(self, group_id=None):
         query = MemberModel.query
@@ -43,7 +41,6 @@ class MemberRepository:
     def delete(self, member):
         db.session.delete(member)
         db.session.commit()
-
 
 class UserRepository:
     def all(self):

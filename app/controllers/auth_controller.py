@@ -15,6 +15,7 @@ def login():
         flash("Λανθασμένο όνομα χρήστη ή κωδικός.", "error")
     return render_template("login.html")
 
+
 @auth_bp.post("/logout")
 def logout():
     logout_user()

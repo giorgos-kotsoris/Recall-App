@@ -1,9 +1,7 @@
 # Κανόνες και οντότητες ανεξάρτητες από βάση.
 
 
-
 from dataclasses import dataclass
-
 
 @dataclass(frozen=True)
 class Member:

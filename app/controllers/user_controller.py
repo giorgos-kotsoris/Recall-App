@@ -28,7 +28,8 @@ def index(): return render_template("users.html", users=AuthService().list_users
 def create():
     if request.method == "POST":
         password = request.form.get("password", "")
-        if password != request.form.get("password_confirmation", ""): flash("Η επιβεβαίωση κωδικού δεν ταιριάζει.", "error")
+        if password != request.form.get("password_confirmation", ""):
+            flash("Η επιβεβαίωση κωδικού δεν ταιριάζει.", "error")
         else:
             try:
                 AuthService().create_user(request.form.get("username"), password, request.form.get("role"))
