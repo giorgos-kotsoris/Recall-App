@@ -2,15 +2,15 @@
 
 Μια εφαρμογή σχεδιασμένη για τις ανάγκες Πολεμικών Πλοίων/ Ναυτικών Υπηρεσιών με την οποία οι αντίστοιχοι προϊστάμενοι θα μπορούν να έχουν πρόσβαση στα στοιχεία επικοινωνίας των υφισταμένων τους, ώστε να είναι ευκολότερη η ενημέρωση τους για καταστάσεις ανάκλησης/ ανάγκης/ ενημέρωσης.
 
-Σημείωση: 1. Για λόγους ασφαλείας χρησιμοποιήθηκε πλοίο το οποίo δεν είναι πλεόν σε υπηρεσία, τα στελέχοι είναι φαντιαστικοί χαρακτήρες και τα στοιχεία τους εικονικά.
-          2. In case of actual implementation, a common database will be used.
+Σημείωση: 1. Για λόγους ασφαλείας χρησιμοποιήθηκε πλοίο το οποίo δεν είναι πλεόν σε υπηρεσία, τα στελέχη είναι φανταστικοί χαρακτήρες και τα στοιχεία τους εικονικά.
+          2. Σε περίπτωση πραγματικής εφαρμογής, θα χρησιμοποιηθεί μια κοινή βάση δεδομένων.
 
 # Personel Recall App
 
 An application designed for the needs of warships/naval services, enabling senior officers to access their subordinates’ contact details so that communication regarding recalls, emergencies or updates can be carried out more easily.
 
 Note: 1. For safety reasons a decommission ship, fictional characters and fictitious personal data were used.
-      2. If used in reality, a remote 
+      2. In case of actual implementation, a common database will be used. 
 
 
 # Ασφάλεια
